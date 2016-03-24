@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include "Mzda.h"
+#include "Secure.h"
+#include <msclr\marshal_cppstd.h>
+
 using namespace std;
 
 namespace pkrim {
@@ -139,12 +142,16 @@ namespace pkrim {
 				double hrubaDobule = Convert::ToDouble(hruba_mzda->Text);
 				Mzda *m = new Mzda(hrubaDobule);
 				m->calculate();
-				/*double poistne = hrubaDobule * 0.134;
-				double ciastkovyZakladDane = hrubaDobule - poistne;
-				double nezanitelnaCast = 316.94;
-				double zdanitelnaMzda = ciastkovyZakladDane - nezanitelnaCast;
-				double dan = zdanitelnaMzda * 0.19;
-				double cistaMzda = hrubaDobule - poistne - dan;*/
+				Secure *secure = Secure::getInstance();
+
+				/*
+				v secure sa budu robit tie opatrenia ... >D 
+				*/
+	//			msclr::interop::marshal_context context;
+	//			String^ str = gcnew String(secure->getFileContent().c_str());
+	//			MessageBox::Show(str);
+
+				
 
 				cista_mzda->Text = Convert::ToString(m->getCistaMzda());
 				m->~Mzda();
@@ -172,3 +179,9 @@ namespace pkrim {
 			 }
 };
 }
+/*double poistne = hrubaDobule * 0.134;
+				double ciastkovyZakladDane = hrubaDobule - poistne;
+				double nezanitelnaCast = 316.94;
+				double zdanitelnaMzda = ciastkovyZakladDane - nezanitelnaCast;
+				double dan = zdanitelnaMzda * 0.19;
+				double cistaMzda = hrubaDobule - poistne - dan;*/
