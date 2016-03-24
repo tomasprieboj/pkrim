@@ -12,7 +12,7 @@ Mzda::Mzda(double hrubaMzda){
 }
 
 Mzda::~Mzda(){
-	System::Windows::Forms::MessageBox::Show("%#$3278^%");
+	
 }
 void Mzda::calculate(){
 	this->setPoistne(this->getHrubaMzda());
