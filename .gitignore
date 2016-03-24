@@ -1,0 +1,6 @@
+*.suo
+pkrim.sdf
+*.vcxproj
+pkrim/Debug/*
+*.vcxproj
+*.filters
