@@ -14,14 +14,16 @@ void main(array<String^>^ arg) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	
-	Secure *secure = new Secure();
+	Secure *secure = Secure::getInstance();
+
 	secure->readFile("test.txt");
 
-	/*
-	msclr::interop::marshal_context context;
-	String^ str = gcnew String(secure->getFileContent().c_str());
-	MessageBox::Show(str);
-	*/
+	
+	//msclr::interop::marshal_context context;
+	//String^ str = gcnew String(secure->getFileContent().c_str());
+	//MessageBox::Show(str);
+	
 	pkrim::MyForm form;
 	Application::Run(%form);
 }
+
