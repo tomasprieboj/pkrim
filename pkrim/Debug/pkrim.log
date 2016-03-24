@@ -1,0 +1,14 @@
+﻿Build started 24. 3. 2016 16:36:49.
+     1>Project "c:\Users\MEP2\documents\visual studio 2012\Projects\pkrim\pkrim\pkrim.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\mep2\documents\visual studio 2012\Projects\pkrim\Debug\pkrim.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\pkrim.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\mep2\documents\visual studio 2012\Projects\pkrim\Debug\pkrim.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\MyForm.obj
+         Debug\Mzda.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+     1>Mzda.obj : error LNK2028: unresolved token (0A0003D6) "public: double __thiscall Mzda::getPoistne(void)" (?getPoistne@Mzda@@$$FQAENXZ) referenced in function "public: double __thiscall Mzda::getCistaMzda(void)" (?getCistaMzda@Mzda@@$$FQAENXZ)
+     1>Mzda.obj : error LNK2019: unresolved external symbol "public: double __thiscall Mzda::getPoistne(void)" (?getPoistne@Mzda@@$$FQAENXZ) referenced in function "public: double __thiscall Mzda::getCistaMzda(void)" (?getCistaMzda@Mzda@@$$FQAENXZ)
+     1>c:\users\mep2\documents\visual studio 2012\Projects\pkrim\Debug\pkrim.exe : fatal error LNK1120: 2 unresolved externals
+     1>Done Building Project "c:\Users\MEP2\documents\visual studio 2012\Projects\pkrim\pkrim\pkrim.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.55
