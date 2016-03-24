@@ -1,15 +1,7 @@
 #include "Mzda.h"
+#include <iostream>
+#include <string>
 
-/*
-double hrubaDobule = Convert::ToDouble(hruba_mzda->Text);
-				double poistne = hrubaDobule * 0.134;
-				double ciastkovyZakladDane = hrubaDobule - poistne;
-				double nezanitelnaCast = 316.94;
-				double zdanitelnaMzda = ciastkovyZakladDane - nezanitelnaCast;
-				double dan = zdanitelnaMzda * 0.19;
-				double cistaMzda = hrubaDobule - poistne - dan;
-
-*/
 Mzda::Mzda(void)
 {
 }
@@ -19,6 +11,9 @@ Mzda::Mzda(double hrubaMzda){
 	this->nezanitelnaCast = 316.94;
 }
 
+Mzda::~Mzda(){
+	System::Windows::Forms::MessageBox::Show("%#$3278^%");
+}
 void Mzda::calculate(){
 	this->setPoistne(this->getHrubaMzda());
 	this->setCiastkovyZakladDane(this->getHrubaMzda(), this->getPoistne());
@@ -26,7 +21,7 @@ void Mzda::calculate(){
 	this->setDan(this->getZdanitelnaMzda());
 }
 void Mzda::setPoistne(double hruba){
-	this->poistenie = hruba * 0.134;
+	this->poistne = hruba * 0.134;
 }
 
 void Mzda::setCiastkovyZakladDane(double hruba, double poistne){
@@ -58,6 +53,10 @@ double Mzda::getZdanitelnaMzda(){
 
 double Mzda::getDan(){
 	return this->dan;
+}
+
+double Mzda::getPoistne(){
+	return this->poistne;
 }
 
 double Mzda::getCistaMzda(){

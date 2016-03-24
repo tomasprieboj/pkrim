@@ -21,6 +21,9 @@
     <ClCompile Include="Mzda.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Secure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -29,5 +32,13 @@
     <ClInclude Include="Mzda.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Secure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

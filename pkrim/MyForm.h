@@ -21,6 +21,7 @@ namespace pkrim {
 	public:
 		MyForm(void)
 		{
+			//mozno nieco pri inicializacii komponentov """"""""""""""""""""""""""""""""""
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -126,7 +127,7 @@ namespace pkrim {
 			this->Controls->Add(this->hruba_mzda);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Vıpoèet èistej mzdy";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -146,6 +147,7 @@ namespace pkrim {
 				double cistaMzda = hrubaDobule - poistne - dan;*/
 
 				cista_mzda->Text = Convert::ToString(m->getCistaMzda());
+				m->~Mzda();
 
 			}catch(FormatException^ ex){
 				MessageBox::Show("FormatException Occured.  Message: " + ex->Message);
