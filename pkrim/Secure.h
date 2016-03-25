@@ -15,7 +15,7 @@ public:
 	string getWindName();
 	string getButtonName();
 	bool MemoryBreakpointDebuggerCheck();
-	
+	int CheckHardwareBreakpoints();
 	
 private:
 

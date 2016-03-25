@@ -6,3 +6,6 @@
 pkrim/Debug/**/*
 *.vcxproj
 *.filters
+pkrim/Debug/*
+Debug/*
+pkrim/Debug/pkrim.vcxprojResolveAssemblyReference.cache
