@@ -5,10 +5,10 @@
 Secure* Secure::sInstance= NULL;
 Secure::Secure(){
 	this->fileContent = "";
-	this->buttonName = "sifButton";
-	this->cistaMzdaName = "sifCistaMzda";
-	this->hrubaMzdaName = "sifHrumaMzda";
-	this->windName = "sifMenoOkna";
+	this->buttonName = "ynuzwle rpwloebpsdfb";
+	this->cistaMzdaName = "wloe psdf ";
+	this->hrubaMzdaName = "cvbk psdf ";
+	this->windName = "ynuzwhepwloehrpsdfnpoebfhiezy";
 	this->XORKey = 9;
 	this->fileName="blpe`k'mh}";
 
@@ -33,6 +33,8 @@ bool Secure::readFile(string fileName){
 		}
 
 		file.close();
+		if(this->fileContent.length() != 27)
+			return false;
 		return true;
 	}else{
 		return false;
@@ -141,19 +143,52 @@ string Secure::getFilename(){
 	return corrected;
 }
 
-string Secure::encrypt(string msg, string key){
-    // Make sure the key is at least as long as the message
-    string tmp(key);
-    while (key.size() < msg.size())
-        key += tmp;
-    
-    // And now for the encryption part
-    for (string::size_type i = 0; i < msg.size(); ++i)
-        msg[i] ^= key[i];
-    return msg;
+int Secure::indexOf(string arr, char c){
+	for(int i = 0; i < arr.length(); i++){
+		if(arr[i] == c)
+			return i;
+	}
+
+	return -1;
+
 }
+
+int Secure::indexOf(char* arr, char c){
+	for(int i = 0; i < strlen(arr); i++){
+		if(arr[i] == c)
+			return i;
+	}
+
+	return -1;
+
+}
+
+string Secure::encrypt(string msg, string key){
+	char tsa[27] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' '};
+	if(key.length() != 27)
+		return NULL;
+	string encRet = "";
+	for(int i = 0; i < msg.length(); i++){
+		int tmpI = this->indexOf(tsa, msg[i]);
+		encRet += key[tmpI];
+	}
+
+	return encRet;
+}
+
 string Secure::decrypt(string msg,string key){
-    return this->encrypt(msg, key); // lol
+
+	char tsa[27] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' '};
+	if(key.length() != 27)
+		return NULL;
+	string encRet = "";
+	for(int i = 0; i < msg.length(); i++){
+		int tmpI = this->indexOf(key, msg[i]);
+		encRet += tsa[tmpI];
+	}
+
+	encRet[0] = toupper(encRet[0]);
+	return encRet;
 }
 
 string Secure::getFileContent(){

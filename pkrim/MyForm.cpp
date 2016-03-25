@@ -14,7 +14,6 @@ void main(array<String^>^ arg) {
 		
 	Secure *secure = Secure::getInstance();
 
-
 	//if(IsDebuggerPresent()){
 	//	exit(0);
 	//}
@@ -28,11 +27,10 @@ void main(array<String^>^ arg) {
 	}
 
 	if(!secure->readFile(secure->getFilename())){
-		MessageBox::Show("TOMAS MAL PRAVDU ?");
-		//exit(0);
+		exit(0);
 	}
 
-
+	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 

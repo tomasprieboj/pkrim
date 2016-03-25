@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <string.h>
 
 using namespace std;
 
@@ -23,6 +24,8 @@ public:
 	
 private:
 
+	int indexOf(string arr, char c);
+	int indexOf(char* arr, char c);
 	static Secure* sInstance; 
 	string fileContent;
 	string windName;

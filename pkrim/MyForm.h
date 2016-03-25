@@ -22,6 +22,7 @@ namespace pkrim {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		
 		MyForm(void)
 		{
 			//mozno nieco pri inicializacii komponentov """"""""""""""""""""""""""""""""""
@@ -42,6 +43,7 @@ namespace pkrim {
 				delete components;
 			}
 		}
+	
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::TextBox^  hruba_mzda;
 	private: System::Windows::Forms::TextBox^  cista_mzda;
@@ -49,6 +51,8 @@ namespace pkrim {
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
+
+
 	protected: 
 
 	private:
@@ -64,6 +68,7 @@ namespace pkrim {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			Secure *secure = Secure::getInstance();
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->hruba_mzda = (gcnew System::Windows::Forms::TextBox());
 			this->cista_mzda = (gcnew System::Windows::Forms::TextBox());
@@ -77,7 +82,9 @@ namespace pkrim {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(186, 33);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Vypocitaj cistu mzdu";
+			
+			String^ str = gcnew String(secure->decrypt(secure->getButtonName(), secure->getFileContent()).c_str());
+			this->button1->Text = str;
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -103,9 +110,9 @@ namespace pkrim {
 				static_cast<System::Byte>(238)));
 			this->label1->Location = System::Drawing::Point(50, 13);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(205, 13);
+			this->label1->Size = System::Drawing::Size(10, 13);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Hrubá mzda zatial davaj ciarku nie bodku ";
+			this->label1->Text = str = gcnew String(secure->decrypt(secure->getHrubaMzdaName(), secure->getFileContent()).c_str());
 			this->label1->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
@@ -114,9 +121,9 @@ namespace pkrim {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(50, 174);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(58, 13);
+			this->label2->Size = System::Drawing::Size(10, 13);
 			this->label2->TabIndex = 4;
-			this->label2->Text = L"Cista mzda";
+			this->label2->Text = str = gcnew String(secure->decrypt(secure->getCistaMzdaName(), secure->getFileContent()).c_str());
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
 			// MyForm
@@ -130,7 +137,7 @@ namespace pkrim {
 			this->Controls->Add(this->hruba_mzda);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
-			this->Text = L"Vypocet cistej mzdy";
+			this->Text = str = gcnew String(secure->decrypt(secure->getWindName(), secure->getFileContent()).c_str());
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -142,7 +149,7 @@ namespace pkrim {
 				double hrubaDobule = Convert::ToDouble(hruba_mzda->Text);
 				Mzda *m = new Mzda(hrubaDobule);
 				m->calculate();
-				Secure *secure = Secure::getInstance();
+				
 
 				/*
 				v secure sa budu robit tie opatrenia ... >D 
