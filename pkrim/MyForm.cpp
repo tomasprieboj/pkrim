@@ -11,12 +11,32 @@ using namespace std;
 
 [STAThread]
 void main(array<String^>^ arg) {
-	Application::EnableVisualStyles();
-	Application::SetCompatibleTextRenderingDefault(false);
-	
+		
 	Secure *secure = Secure::getInstance();
 
-	secure->readFile("test.txt");
+
+	//if(IsDebuggerPresent()){
+	//	exit(0);
+	//}
+	
+	if(secure->MemoryBreakpointDebuggerCheck()){
+		exit(0);
+	}
+
+	if( secure->CheckHardwareBreakpoints() > 0){
+		exit(0);
+	}
+
+
+
+	if(secure->readFile("test.txt")){
+		exit(0);
+	}
+
+
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+
 
 	
 	//msclr::interop::marshal_context context;
