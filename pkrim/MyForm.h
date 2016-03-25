@@ -77,7 +77,7 @@ namespace pkrim {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(186, 33);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Vypoèítaj èistú mzdu";
+			this->button1->Text = L"Vypocitaj cistu mzdu";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -116,7 +116,7 @@ namespace pkrim {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(58, 13);
 			this->label2->TabIndex = 4;
-			this->label2->Text = L"Èistá mzda";
+			this->label2->Text = L"Cista mzda";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
 			// MyForm
@@ -130,7 +130,7 @@ namespace pkrim {
 			this->Controls->Add(this->hruba_mzda);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
-			this->Text = L"Výpoèet èistej mzdy";
+			this->Text = L"Vypocet cistej mzdy";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

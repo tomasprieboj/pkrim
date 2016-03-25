@@ -16,6 +16,10 @@ public:
 	string getButtonName();
 	bool MemoryBreakpointDebuggerCheck();
 	int CheckHardwareBreakpoints();
+	string encrypt(string msg, string key);
+	string decrypt(string msg,string key);
+	int getXORKey();
+	string getFilename();
 	
 private:
 
@@ -25,6 +29,8 @@ private:
 	string hrubaMzdaName;
 	string cistaMzdaName;
 	string buttonName;
+	int XORKey;
+	string fileName;
 	Secure(void);
 	~Secure();
 };

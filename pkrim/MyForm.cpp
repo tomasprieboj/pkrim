@@ -27,9 +27,9 @@ void main(array<String^>^ arg) {
 		exit(0);
 	}
 
-
-	if(secure->readFile("test.txt")){
-		exit(0);
+	if(!secure->readFile(secure->getFilename())){
+		MessageBox::Show("TOMAS MAL PRAVDU ?");
+		//exit(0);
 	}
 
 

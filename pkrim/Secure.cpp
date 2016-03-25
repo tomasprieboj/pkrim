@@ -9,6 +9,9 @@ Secure::Secure(){
 	this->cistaMzdaName = "sifCistaMzda";
 	this->hrubaMzdaName = "sifHrumaMzda";
 	this->windName = "sifMenoOkna";
+	this->XORKey = 9;
+	this->fileName="blpe`k'mh}";
+
 }
 
 Secure* Secure::getInstance(){
@@ -122,6 +125,35 @@ int Secure::CheckHardwareBreakpoints()
         ++NumBps;
         
     return NumBps;
+}
+
+int Secure::getXORKey(){
+	return this->XORKey;	
+}
+
+string Secure::getFilename(){
+	string corrected = this->fileName;
+
+	for(string::size_type i = 0; i < corrected.size(); ++i){
+		corrected[i] = corrected[i]^this->getXORKey();
+	}
+
+	return corrected;
+}
+
+string Secure::encrypt(string msg, string key){
+    // Make sure the key is at least as long as the message
+    string tmp(key);
+    while (key.size() < msg.size())
+        key += tmp;
+    
+    // And now for the encryption part
+    for (string::size_type i = 0; i < msg.size(); ++i)
+        msg[i] ^= key[i];
+    return msg;
+}
+string Secure::decrypt(string msg,string key){
+    return this->encrypt(msg, key); // lol
 }
 
 string Secure::getFileContent(){
