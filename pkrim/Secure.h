@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <string.h>
+#include "sha256.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ public:
 	string encrypt(string msg, string key);
 	string decrypt(string msg,string key);
 	int getXORKey();
+	bool checkFileKey();
 	string getFilename();
 	
 private:
@@ -28,6 +30,7 @@ private:
 	int indexOf(char* arr, char c);
 	static Secure* sInstance; 
 	string fileContent;
+	string hash;
 	string windName;
 	string hrubaMzdaName;
 	string cistaMzdaName;

@@ -13,7 +13,7 @@ using namespace std;
 void main(array<String^>^ arg) {
 		
 	Secure *secure = Secure::getInstance();
-
+	
 	//if(IsDebuggerPresent()){
 	//	exit(0);
 	//}
@@ -30,6 +30,9 @@ void main(array<String^>^ arg) {
 		exit(0);
 	}
 
+	if(!secure->checkFileKey()){
+		exit(0);
+	}
 	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

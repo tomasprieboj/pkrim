@@ -1,6 +1,10 @@
 #include "Secure.h"
 #include <stdio.h>
 #include <Windows.h>
+#include <msclr\marshal_cppstd.h>
+#include <string>
+
+using namespace System;
 
 Secure* Secure::sInstance= NULL;
 Secure::Secure(){
@@ -10,6 +14,7 @@ Secure::Secure(){
 	this->hrubaMzdaName = "cvbk psdf ";
 	this->windName = "ynuzwhepwloehrpsdfnpoebfhiezy";
 	this->XORKey = 9;
+	this->hash = "92be268a694bcb767dd9a4c297a28e58d7dc13e7e59fe644f918b960c9dedfb7";
 	this->fileName="blpe`k'mh}";
 
 }
@@ -24,6 +29,8 @@ Secure* Secure::getInstance(){
 bool Secure::readFile(string fileName){
 	string tmpLine;
 	ifstream file;
+
+	
 	
 	file.open(fileName);
 	if(file.is_open()){
@@ -43,8 +50,7 @@ bool Secure::readFile(string fileName){
 
 }
 
-bool Secure::MemoryBreakpointDebuggerCheck()
-{
+bool Secure::MemoryBreakpointDebuggerCheck(){
      unsigned char *pMem = NULL;
      SYSTEM_INFO sysinfo = {0}; 
      DWORD OldProtect = 0;
@@ -95,8 +101,7 @@ bool Secure::MemoryBreakpointDebuggerCheck()
 
 // CheckHardwareBreakpoints returns the number of hardware 
 // breakpoints detected and on failure it returns -1.
-int Secure::CheckHardwareBreakpoints()
-{
+int Secure::CheckHardwareBreakpoints(){
     unsigned int NumBps = 0;
 
     // This structure is key to the function and is the 
@@ -161,6 +166,15 @@ int Secure::indexOf(char* arr, char c){
 
 	return -1;
 
+}
+
+bool Secure::checkFileKey(){
+	string fileContentHash = sha256(this->fileContent);
+
+	if(fileContentHash == this->hash)
+		return true;
+	else
+		false;
 }
 
 string Secure::encrypt(string msg, string key){

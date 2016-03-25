@@ -69,7 +69,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
-      <SubSystem>NotSet</SubSystem>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -83,6 +84,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Mzda.cpp" />
     <ClCompile Include="Secure.cpp" />
+    <ClCompile Include="sha256.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -90,6 +92,7 @@
     </ClInclude>
     <ClInclude Include="Mzda.h" />
     <ClInclude Include="Secure.h" />
+    <ClInclude Include="sha256.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
