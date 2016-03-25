@@ -2,6 +2,7 @@
 *.sdf
 *.opensdf
 *.vcxproj
+*.tlog
 pkrim/Debug/**/*
 *.vcxproj
 *.filters
