@@ -8,12 +8,13 @@ using namespace std;
 class Secure{
 public:
 	Secure static *getInstance(); 
-	void readFile(string fileName);
+	bool readFile(string fileName);
 	string getFileContent();
 	string getHrubaMzdaName();
 	string getCistaMzdaName();
 	string getWindName();
 	string getButtonName();
+	bool MemoryBreakpointDebuggerCheck();
 	
 	
 private:

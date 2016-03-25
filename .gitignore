@@ -1,5 +1,6 @@
 *.suo
-pkrim.sdf
+*.sdf
+*.opensdf
 *.vcxproj
 pkrim/Debug/*
 *.vcxproj
