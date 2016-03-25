@@ -28,7 +28,6 @@ void main(array<String^>^ arg) {
 	}
 
 
-
 	if(secure->readFile("test.txt")){
 		exit(0);
 	}
