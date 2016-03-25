@@ -9,3 +9,11 @@ pkrim/Debug/**/*
 pkrim/Debug/*
 Debug/*
 pkrim/Debug/pkrim.vcxprojResolveAssemblyReference.cache
+Debug/pkrim.exe
+Debug/pkrim.exe
+*.tlog
+pkrim/Debug/CL.write.1.tlog
+*.obj
+pkrim/Debug/pkrim.log
+*.cache
+pkrim/Debug/pkrim.write.1.tlog
