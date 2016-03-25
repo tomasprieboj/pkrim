@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -14,18 +12,20 @@ public:
 	double getPoistne();
 	double getCiastkovyZakladDane();
 	double getNezanitelnaCast();
+
 	double getZdanitelnaMzda();
 	double getDan();
 	void setPoistne(double val);
 	void setCiastkovyZakladDane(double hruba, double poistne);
 	void setZdanitelnaMzda(double ciastkovyZakladDane, double nezanitelnaCast);
 	void setDan(double val);
+	~Mzda();
 
 private:
 	
 	double hrubaMzda;
 	double ciastkovyZakladDane;
-	double poistenie;
+	double poistne;
 	double nezanitelnaCast;
 	double zdanitelnaMzda;
 	double dan;
