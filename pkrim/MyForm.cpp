@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <msclr\marshal_cppstd.h>
+#include <sstream>
+
 
 using namespace System;
 using namespace System ::Windows::Forms;
@@ -17,7 +19,8 @@ void main(array<String^>^ arg) {
 	//if(IsDebuggerPresent()){
 	//	exit(0);
 	//}
-	
+	DWORD Counter = GetTickCount();
+
 	if(secure->MemoryBreakpointDebuggerCheck()){
 		exit(0);
 	}
@@ -33,6 +36,15 @@ void main(array<String^>^ arg) {
 	if(!secure->checkFileKey()){
 		exit(0);
 	}
+
+	Counter = GetTickCount() - Counter;
+
+	if(Counter > 100 || Counter < 5){
+		exit(0);
+	}
+//	ostringstream stream;
+//	stream << Counter;
+//	MessageBox::Show(gcnew String(stream.str().c_str()));
 	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
