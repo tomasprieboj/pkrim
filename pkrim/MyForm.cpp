@@ -5,6 +5,7 @@
 #include <iostream>
 #include <msclr\marshal_cppstd.h>
 #include <sstream>
+#include <windows.h>
 
 
 using namespace System;
@@ -15,7 +16,8 @@ using namespace std;
 void main(array<String^>^ arg) {
 		
 	Secure *secure = Secure::getInstance();
-	
+
+
 	//if(IsDebuggerPresent()){
 	//	exit(0);
 	//}

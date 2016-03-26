@@ -27,7 +27,7 @@ namespace pkrim {
 		{
 			//mozno nieco pri inicializacii komponentov """"""""""""""""""""""""""""""""""
 			InitializeComponent();
-
+			//desifruju sa tu stringy
 			Secure *secure = Secure::getInstance();
 			String^ str = gcnew String(secure->decrypt(secure->getWindName(), secure->getFileContent()).c_str());
 			this->Text = str;
@@ -180,10 +180,8 @@ namespace pkrim {
 				throw;
 			}
 		}catch(Exception^ ex){
-			MessageBox::Show("tomas testuje");
+			MessageBox::Show("sdfèu¾éš");
 		}
-
-				 
 	}
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 
